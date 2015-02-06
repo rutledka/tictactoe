@@ -7,15 +7,19 @@ function ticTacToe() {
 		this.playerClass = playerclass;
 	}
 
-	var playerOne = new self.player("Player 1", "x");
-	var playerTwo = new self.player("Player 2", "o");
+	//var playerOne = new self.player("Player 1", "x");
+	//var playerTwo = new self.player("Player 2", "o");
+	
+	//What's the difference between:
+	playerOne: new self.player("Player 1", "x");
+	playerTwo: new self.player("Player 2", "o");
+
 	var currentRound = 0;
 	var currentPlayer;
 	var occupied = [];
 
 	self.init = function(){
-		currentPlayer = currentRound % 2 ? playerTwo : playerOne;
-
+		currentPlayer = currentRound % 2 ? self.playerTwo : self.playerOne;
 		currentRound++;
 
 	}
