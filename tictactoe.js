@@ -19,16 +19,17 @@ function ticTacToe() {
 	self.occupied = new Array();
 
 	self.placeMark = function(squareID, player){
-		if(!self.isOccupied()){
+		if(!self.isOccupied(squareID)){
 			b.occupied.push([squareID, player.playerClass]);
 			player.moves.push(squareID);
 			console.log(b.occupied);
-			console.log(player.moves);
-			self.hasWinner(player);
+			console.log(player.title + " " + player.moves);
+			self.isWinner(player);
+			b.currentRound++;
 		}
 	}
 
-	self.hasWinner = function(player){
+	self.isWinner = function(player){
 		//Hardcoded the winning possibilities
 		var winners = [
 		[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]
@@ -97,36 +98,8 @@ do {
 	var cell = Math.floor(Math.random()*9);
 
 	b.placeMark(cell,player);
-	console.log(b.currentRound + " " + cell + " " + player);
-	b.currentRound++;
+	console.log("current round: " + b.currentRound + " cell: " + cell + " " + player.title);
 } while(b.hasMoves());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
